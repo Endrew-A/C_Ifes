@@ -96,7 +96,7 @@ void exe4(){
 	
 	scanf("%d",&saque);
 	
-	if(saque<=2000 && saque%2==0 && saque%5==0){
+	if(saque<=2000 && (saque%2==0 || saque%5==0)){
 		n100 = saque/100;
 		saque %= 100;
 		n50 = saque/50;
