@@ -169,12 +169,108 @@ void exe7(){
 			printf("%d",soma);
 
 			break;
+	}	
+}
+
+void exe8(){
+	char aluno [3] [20];
+	float nota [3] [3], media=0;
+	int i,j;
+	
+	for(i=0;i<3;i++){
+		printf("Nome: ");
+		scanf("%s[^\n]s",aluno[i]);
+		getchar();
+		for(j=0;j<3;j++){
+			scanf("%f",&nota[i][j]);
+			getchar();
+		}
 	}
 	
+	for(i=0;i<3;i++){
+		for(j=0;j<3;j++){
+			media+=nota[i][j];
+		}
+		if(media/3>=6){
+			printf("%s :Aprovado",aluno[i]);
+		}else if(media/3<4){
+			printf("%s :Reprovado",aluno[i]);
+		}else{
+			printf("%s :Recuperação",aluno[i]);
+		}
+		media=0;
+	}
+}
+
+void exe9(){
+	float t1=0,t2=0,t3=0,t0=0;
+	int voto;
+	
+	while(voto>=0){
+		scanf("%d",&voto);
+		getchar();
+		switch(voto){
+			
+			case 1:
+				t1++;
+				break;
+			case 2:
+				t2++;
+				break;
+			case 3:
+				t3++;
+				break;
+			case 0:
+				t0++;
+				break;
+		}	
+	}
+	printf("1: %.0f / 2: %.0f / 3: %.0f / 0: %.2f", t1,t2,t3,(t0/(t1+t2+t3+t0))*100);	
+}
+
+void exe10(){
+	int n[5],op,i;
+	float media=0;
+	
+	for(i=0;i<5;i++){
+		scanf("%d",&n[i]);
+		getchar();
+	}
+	printf("1. Mostrar o vetor na ordem original \n2. Mostrar o vetor na ordem inversa \n3. Calcular a média dos valores pares \n4. Calcular a média dos valores ímpares \n5. Sair do programa\n");
+	scanf("%d",&op);
+	getchar();
+	switch(op){
+		case 1:
+			for(i=0;i<5;i++){
+				printf("%d\n",n[i]);
+			}
+			break;
+		case 2:
+			for(i=5;i>0;i--){
+				printf("%d\n",n[i]);
+			}
+			break;
+		case 3:
+			for(i=0;i<5;i++){
+				if(n[i]%2==0){
+				media += n[i];}
+			}
+			printf("%.2f",media/5);
+			break;
+		case 4:
+			for(i=0;i<5;i++){
+				if(n[i]%2==1){
+				media += n[i];}
+			}
+			printf("%.2f",media/5);
+			break;
+		case 5:
+			break;
+	}
 }
 
 void main(){
-	exe7();
+	exe10();
 	
 	
 	
