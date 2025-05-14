@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 //Lista extra - Vetor
 
 void exe1(){
@@ -269,8 +270,75 @@ void exe10(){
 	}
 }
 
+void exe11(){
+	int a[5],i;
+	
+	for(i=0;i<5;i++){
+		scanf("%d",&a[i]);
+		getchar();
+	}
+	
+	for(i=0;i<5;i++){
+		if(a[i] == 10){
+			printf("Posicao: %d\n",i);
+		}
+	}
+}
+
+void exe12(){
+	int a[10],i,n025=0,n2650=0,n5175=0,n76100=0;
+	
+	for(i=0;i<10;i++){
+		scanf("%d",&a[i]);
+		getchar();
+		if(a[i]<0 || a[i]>100){
+			printf("Digite apenas valores entre 0 e 100.\n");
+			i=i-1;
+		}else if(a[i]>=0 && a[i]<=25){
+			n025++;
+		}else if(a[i]>25 && a[i]<=50){
+			n2650++;
+		}else if(a[i]>50 && a[i]<=75){
+			n5175++;
+		}else{
+			n76100++;
+		}
+	}
+	
+	printf("/");
+	for(i=0;i<10;i++){
+		printf("%d /",a[i]);
+	}
+	
+	printf("\n%d / %d / %d / %d",n025,n2650,n5175,n76100);
+}
+
+void exe13(){
+	int n[3][5],i,j;
+	//srand(time(NULL));
+	for(i=0;i<2;i++){
+		for(j=0;j<5;j++){
+			scanf("%d",&n[i][j]);
+			getchar();
+		}
+	}
+	/*for(i=0;i<5;i++){
+		a[3][i] =rand() %10;
+	}*/
+	
+	//multiplicar a primeira da primeira matriz pelo último da segunda matriz
+	for(i=0;i<5;i++){
+		n[2][i] = n[0][i] * n[1][4-i];
+	}
+	
+	for(i=0;i<5;i++){
+		printf("%d\n",n[2][i]);
+	}
+	
+}
+
 void main(){
-	exe10();
+	exe13();
 	
 	
 	
